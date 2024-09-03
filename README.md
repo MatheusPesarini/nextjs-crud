@@ -6,6 +6,8 @@
 
 #### To Do
 - [ ] Deploy on Vercel
+- [ ] Create a login and register user page
+- [ ] Configure ESlint
 
 ## Requirements
 
@@ -37,7 +39,13 @@ npm run start
 
 ## Creation of scheme and .env using Prisma
 
-First on the .env file, you need to add the following:
+First you need to initiate Prisma with the following command:
+
+```bash
+npx prisma init
+```
+
+On the .env file, you need to add the following:
 
 ```
 DATABASE_URL="postgresql://user:password@localhost:5432/database_name"

@@ -2,6 +2,7 @@
 
 #### Done
 - [x] First database connection
+- [x] Organização dos diretórios
 
 #### To Do
 - [ ] Deploy on Vercel

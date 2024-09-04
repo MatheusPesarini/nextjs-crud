@@ -3,11 +3,11 @@
 #### Done
 - [x] First database connection
 - [x] Organização dos diretórios
+- [x] Configure ESlint
 
 #### To Do
 - [ ] Deploy on Vercel
 - [ ] Create a login and register user page
-- [ ] Configure ESlint
 
 ## Requirements
 
@@ -76,5 +76,76 @@ Then, you need to run the following command in terminal to create the schema:
 npx prisma db push
 ```
 
+## Creation and configuration of ESLint and Prettier
 
+First the dependencies that are needed to be installed as devDependencies:
 
+```
+"@eslint/js": "^9.9.1",
+"@typescript-eslint/eslint-plugin": "^8.4.0",
+"@typescript-eslint/parser": "^8.4.0",
+"eslint": "^9.9.1",
+"eslint-config-prettier": "^9.1.0",
+"eslint-plugin-prettier": "^5.2.1",
+"eslint-plugin-react": "^7.35.1",
+"prettier": "^3.3.3",
+```
+
+After this, is needed to create the eslint.config.mjs file with the following content:
+
+```javascript
+import globals from "globals";
+import js from "@eslint/js";
+import ts from "@typescript-eslint/eslint-plugin";
+import parser from "@typescript-eslint/parser";
+import react from "eslint-plugin-react";
+import prettier from "eslint-plugin-prettier";
+
+export default [
+    {
+        files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+        languageOptions: {
+            globals: { ...globals.browser, ...globals.node },
+            parser: parser,
+        },
+        plugins: {
+            "@typescript-eslint": ts,
+            react: react,
+            prettier: prettier,
+        },
+        rules: {
+            // Adicione as regras recomendadas diretamente
+            ...js.configs.recommended.rules,
+            ...ts.configs.recommended.rules,
+            ...react.configs.recommended.rules,
+            quotes: ["error", "double"], // Força o uso de aspas duplas
+            semi: ["error", "always"], // Exige ponto e vírgula no final das linhas
+            indent: ["error", 4], // Força indentação de 2 espaços
+            "react/jsx-uses-react": "off", // Desativa a necessidade de importar React para usar JSX (para React 17+)
+            "react/react-in-jsx-scope": "off", // Desativa a necessidade de React no escopo (para React 17+)
+            "@typescript-eslint/no-unused-vars": [
+                "error",
+                { argsIgnorePattern: "^_" },
+            ], // Ignora variáveis começando com "_"
+            "prettier/prettier": ["error", { singleQuote: false }], // Adiciona Prettier como regra do ESLint com aspas duplas
+        },
+        settings: {
+            react: {
+                version: "detect",
+            },
+        },
+    },
+];
+```
+
+And for last, the creation of .prettierrc file with the following content:
+
+```json
+{
+    "singleQuote": false,
+    "semi": true,
+    "tabWidth": 4,
+    "trailingComma": "es5",
+    "endOfLine": "auto"
+}
+```

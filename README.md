@@ -2,8 +2,8 @@
 
 #### Done
 - [x] First database connection
-- [x] Organização dos diretórios
-- [x] Configure ESlint
+- [x] Directories organization
+- [x] Configuration of ESlint
 
 #### To Do
 - [ ] Deploy on Vercel

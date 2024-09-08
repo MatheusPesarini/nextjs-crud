@@ -1,5 +1,5 @@
 // index.tsx
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const HomePage = () => {
     return (

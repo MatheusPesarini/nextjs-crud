@@ -4,10 +4,13 @@
 - [x] First database connection
 - [x] Directories organization
 - [x] Configuration of ESlint
+- [x] Configuration of bcrypt
+
+#### In Progress
+- [ ] Creation of the login and register user page
 
 #### To Do
 - [ ] Deploy on Vercel
-- [ ] Create a login and register user page
 
 ## Requirements
 

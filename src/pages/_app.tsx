@@ -1,11 +1,11 @@
 ﻿// _app.tsx (ou _main.tsx)
-import { AppProps } from 'next/app';
-import { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../styles/globalStyles';
+import { AppProps } from "next/app";
+import { ThemeProvider } from "styled-components";
+import GlobalStyles from "../styles/globalStyles";
 
 const theme = {
     colors: {
-        primary: '#0070f3',
+        primary: "#0070f3",
     },
 };
 

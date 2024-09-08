@@ -1,5 +1,5 @@
 // styles/globalStyles.ts
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
     /* Reset de CSS */
